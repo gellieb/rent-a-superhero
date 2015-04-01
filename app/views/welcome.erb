@@ -2,10 +2,12 @@
   <div class="container">
     <%if current_user%>
     <h1>Hello, <%= current_user.name%>!</h1>
+     <p>Rent your own personal superhero at your beck and call</p>
+    <p><a class="btn btn-primary btn-lg" href="/superhero/index" role="button">+ Rent Superhero</a></p>
     <%else%>
     <h1>Welcome to Rent-A-Superhero</h1>
+    <p>Rent your own personal superhero at your beck and call</p>
+    <p><a class="btn btn-primary btn-lg" href="/signup" role="button">+ Rent Superhero</a></p>
     <%end%>
-    <p>Your own personal superhero at your beck and call</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">+ Rent Superhero</a></p>
   </div>
 </div>
