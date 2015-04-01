@@ -1,0 +1,8 @@
+<form action="/user/<%= current_user.id %>/edit" method="POST" class="edit_form">
+  <input type="hidden" name="_method" value="PUT">
+  <% rentals.each do |rental|%>
+  <h2><%=rental.superhero.name%></h2>
+  <input type="text" name="reason[<%=rental.superhero.id%>]" value="<%= rental.reason %>">
+<%end%>
+<input type="submit">
+</form>

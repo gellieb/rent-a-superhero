@@ -3,14 +3,19 @@ get '/superhero/index' do
 end
 
 get '/superhero/new' do
-  p "*********************"
-  p params
-  p "*********************"
   erb :'superhero/new'
 end
 
 post '/superhero/new' do
-  redirect '/superhero/index'
+  if Superhero.find_by(name: params[:name])
+    erb :'superhero/error'
+  else
+    hero = Superhero.create(name: params[:name],
+                      specialty: params[:specialty],
+                      bio: params[:bio])
+    redirect '/superhero/index'
+  end
+
 end
 
 get '/superhero/:id' do
