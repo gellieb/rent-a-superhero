@@ -3,7 +3,7 @@
   <ul>
   <%heros.each do |hero|%>
 
-  <li><h3><%=hero.name%></h3></li>
+  <li><h3><a href='/superhero/<%=hero.id%>'><%=hero.name%></a></h3></li>
   <%end%>
 </ul>
 </div>
