@@ -1,11 +1,11 @@
 <h1> Your Rentals </h1>
 
-<div id='rentals'>
+<div class='rentals'>
   <%rentals.each do |rental|%>
   <div class='rented'>
     <%=rental.superhero.name%> || <%=rental.reason%>
   <%if current_user == user %>
-    <div class='edit-link'>  <a href="/user/<%=current_user.id%>/edit">Edit Rental</a> || <a href="/user/<%=current_user.id%>/delete">Delete Rental</a>
+    <div class='edit-link'>  <a href="/user/<%=current_user.id%>/edit">Edit Rental</a> </div>||<div class='delete-link'> <a href="/user/<%=current_user.id%>/delete">Delete Rental</a>
     </div>
   <%end%>
   </div>
@@ -15,23 +15,6 @@
 
 
 </div>
-
-
-<!--
-<table>
-  <th>
-    <td>NAME</td>
-    <td>REASON</td>
-    <td>Edit/Delete</td>
-  </th>
-  <%rentals.each do |rental|%>
-  <tr>
-    <td><%=rental.superhero.name%></td>
-    <td><%=rental.reason%></td>
-    <td><a href="/user/<%=current_user.id%>/edit">Edit Rental</a> || <a href="/user/<%=current_user.id%>/delete">Delete Rental</a> </td>
-  </tr>
-    <%end%>
-  </table> -->
 
   <div> <a href='/superhero/index'>Superhero Index</a>
   </div>
