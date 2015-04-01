@@ -4,7 +4,7 @@ class CreateSuperheros < ActiveRecord::Migration
       t.string :name
       t.string :specialty, default: "general superhero"
       t.float :overall_rating, precision: 2, scale: 1
-
+      t.text :bio, null: false
       t.timestamps null: false
     end
   end
