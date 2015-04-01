@@ -20,11 +20,13 @@ end
 
 
 get '/user/:id/delete' do
-
-
+  user = User.find_by(id: params[:id])
+  erb :'user/delete', locals: {user: user, rentals: user.rentals}
 end
 
-delete '/user/:id/delete' do
+delete '/user/:id' do
+  user = User.find_by(id: params[:id])
+  rental = user.rentals.find(params[:rentals])
+  rental.destroy
   redirect "/user/#{current_user.id}/index"
-
 end
