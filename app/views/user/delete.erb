@@ -1,4 +1,4 @@
-<form action='/user/<%=user.id%>' method='post'>
+<form id='delete-form'  action='/user/<%=user.id%>' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <select name='rentals'>
   <%rentals.each do |rental|%>

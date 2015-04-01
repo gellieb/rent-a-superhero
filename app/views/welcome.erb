@@ -3,17 +3,17 @@
 
     <%if current_user%>
     <h1>Hello, <%= current_user.name%>!</h1>
-     <p>Rent your own personal superhero at your beck and call</p>
+    <p>Rent your own personal superhero at your beck and call</p>
     <p><a class="btn btn-primary btn-lg" href="/superhero/index" role="button">+ Rent Superhero</a></p>
     <%else%>
     <h1>Welcome to Rent-A-Superhero</h1>
     <p>Rent your own personal superhero at your beck and call</p>
     <p><a class="btn btn-primary btn-lg" href="/signup" role="button">+ Rent Superhero</a></p>
     <%end%>
+    <div class='hiring'>
+      <p><a class="btn btn-primary btn-lg" href="/superhero/new" role="button">+ Now Hiring Superheroes</a></p>
+    </div>
   </div>
 
 
 </div>
-  <div class='hiring'>
-    <p><a class="btn btn-primary btn-lg" href="/superhero/new" role="button">+ Now Hiring Superheroes</a></p>
-  </div>

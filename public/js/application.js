@@ -1,7 +1,51 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+  $('.hero-index').on('click', 'li h3 a', function(event){
+    event.preventDefault();
+    var url = $(event.target).attr('href');
+    $.ajax({
+      url: url,
+      method: 'get',
+      success: function(response){
+        $('.hero-index').replaceWith(response);
+        console.log(response);}
+      });
+  });
+
+  $('.rentals').on('click', '.rented .edit-link a', function(event){
+    event.preventDefault();
+    var url = $(event.target).attr('href');
+    $.ajax({
+      url: url,
+      method: 'get',
+      success: function(response){
+        $('.rentals').replaceWith(response);
+      }
+    });
+  });
+
+  $('.rentals').on('click', '.rented .delete-link a', function(event){
+    event.preventDefault();
+    var url = $(event.target).attr('href');
+    $.ajax({
+      url: url,
+      method: 'get',
+      success: function(response){
+        $('.rentals').replaceWith(response);
+      }
+    });
+  })
+
+  $('body').on('submit', '#delete-form', function(event){
+    event.preventDefault();
+
+    var $target = $(event.target)
+    $.ajax({url: $target.attr('action'),
+      method: 'DELETE',
+      data: $target.serialize()
+    }).done(function(response){
+      location.reload();
+    })
+  });
+})
+

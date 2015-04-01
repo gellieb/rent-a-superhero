@@ -5,7 +5,11 @@ end
 
 get '/user/:id/edit' do
   user = User.find_by(id: params[:id])
-  erb :'user/edit', locals: {user: user, rentals: user.rentals}
+  if request.xhr?
+      erb :'user/edit', locals: {user: user, rentals: user.rentals}, layout: false
+  else
+    erb :'user/edit', locals: {user: user, rentals: user.rentals}
+  end
 end
 
 put '/user/:id/edit' do
@@ -21,7 +25,11 @@ end
 
 get '/user/:id/delete' do
   user = User.find_by(id: params[:id])
-  erb :'user/delete', locals: {user: user, rentals: user.rentals}
+  if request.xhr?
+    erb :'user/delete', locals: {user: user, rentals: user.rentals}, layout: false
+  else
+    erb :'user/delete', locals: {user: user, rentals: user.rentals}
+  end
 end
 
 delete '/user/:id' do

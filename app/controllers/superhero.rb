@@ -11,15 +11,19 @@ post '/superhero/new' do
     erb :'superhero/error'
   else
     hero = Superhero.create(name: params[:name],
-                      specialty: params[:specialty],
-                      bio: params[:bio])
+      specialty: params[:specialty],
+      bio: params[:bio])
     redirect '/superhero/index'
   end
 
 end
 
 get '/superhero/:id' do
-  erb :'superhero/show', locals: {hero: Superhero.find_by(id: params[:id])}
+  if request.xhr?
+    erb :'superhero/show', locals: {hero: Superhero.find_by(id: params[:id])}, layout: false
+  else
+    erb :'superhero/show', locals: {hero: Superhero.find_by(id: params[:id])}
+  end
 end
 
 get '/superhero/:id/rent' do
