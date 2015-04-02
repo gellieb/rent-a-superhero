@@ -3,11 +3,7 @@ get '/' do
 end
 
 get '/login' do
-  if request.xhr?
-    erb :'auth/login', layout: false
-  else
-    erb :'auth/login'
-  end
+  erb :'auth/login'
 end
 
 put '/login' do

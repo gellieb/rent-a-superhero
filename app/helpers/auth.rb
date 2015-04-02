@@ -6,6 +6,6 @@ def current_user
   end
 end
 
-def login?
+def logged_in?
   session[:user_id].nil? ? false : true
 end
