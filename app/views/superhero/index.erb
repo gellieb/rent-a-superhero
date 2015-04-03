@@ -1,9 +1,8 @@
 <h1>Choose Wisely: </h1>
 <div class="hero-index">
   <ul>
-  <%heros.each do |hero|%>
-
-  <li><h3><a href='/superhero/<%=hero.id%>'><%=hero.name%></a></h3></li>
+  <%@heroes.each do |hero|%>
+    <%= erb :'partials/_superhero', locals: {superhero: hero}  %>
   <%end%>
 </ul>
 </div>

@@ -1,5 +1,6 @@
 <div id='new-rental'>
-  <form action="/superhero/<%=hero.id%>/rent" method='post'>
+  <form action="/rentals" method='post'>
+    <input type="hidden" name="superhero_id" value="<%= hero.id %>">
     <h2>Renting: <%hero.name%></h2>
     <h3> Reason for renting:</h3>
     <textarea name= 'reason' rows='10' cols='50' placeholder='Clean kitty litter. Assassinate nemesis. etc'></textarea>
